@@ -2,6 +2,8 @@ package net.sharksystem.utils.tcp;
 
 //import net.sharksystem.asap.ASAPEncounterHelper;
 
+import net.sharksystem.utils.Log;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -36,7 +38,7 @@ public class SocketFactory implements Runnable {
                 this.waitForConnectionThread.notify();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.writeLog(this, "server socket closed? \n" + e.getLocalizedMessage());
         }
     }
 
